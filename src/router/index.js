@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import newbovino from '../views/newbovino.vue'
+import About from '../views/About.vue'
+import Loggin from '../views/Loggin.vue'
+import Register from '../views/Register.vue'
+import LogginAccount from '../views/LogginCuenta.vue'
+import Editar from '../views/Editar.vue'
+import components from '../components/components.vue'
+import store from '../store/index.js'
 
 Vue.use(VueRouter)
 
@@ -11,13 +19,40 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
+    path: '/Addbovino',
+    name: 'newbovino',
+    component: newbovino
+  },
+  {
+    path: '/About',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    component: About
+  },
+  {
+    path: '/Loggin',
+    name: 'Loggin',
+    component: Loggin
+  },
+  {
+    path: '/Register',
+    name: 'Registro',
+    component: Register
+  },
+  {
+    path: '/LogginAccount',
+    name: 'LogginAccount',
+    component: LogginAccount
+  },
+  {
+    path: '/Edit',
+    name: 'EditarBovino',
+    component: Editar
+  },
+  {
+    path: '/components',
+    name: 'components',
+    component: components
+  },
 ]
 
 const router = new VueRouter({
@@ -25,5 +60,16 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+//router.beforeEach((to, from, next) => {
+  //if (!store.state.token && to.path != '/LogginAccount') {
+
+    //next({ name: 'LogginAccount' })
+  //} else {
+
+    //next() // go to wherever I'm going
+  //}
+
+//})
 
 export default router

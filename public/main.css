@@ -1,0 +1,144 @@
+body {
+    background: #1c92d2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+.logo{
+    width: 30%;
+    height: 40%;
+}
+footer {
+    min-height: 70px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+    
+  }
+.dropdown-menu > .dropdown-item:hover{
+    /*Modifica lo que quieras*/
+    background:rgb(36, 7, 7);
+ }
+.container.containers.p-5{
+    overflow: auto;
+    margin-bottom: 300px;
+}
+
+.redurex{
+    margin-right: 10px;
+}
+
+.card{
+    margin-bottom: 20px;
+}
+.selectAltura {
+    display:flex;
+    height:55px;
+    width:150px;
+  }
+.inputlarge{
+    width: 300px;
+}
+.selectAltura {   
+    font-size: 12pt;   
+    font-family : verdana,arial,helvetica;   
+ }
+.selectAltura2 {
+    padding:20px;
+  }
+.part1{
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+    letter-spacing: .0071428571em;
+}
+.reformed{
+    font-size: 12px;
+   
+}
+.reformed2{
+    font-size: 11.5px;
+}
+.marginai{
+    margin-left: 30px;
+}
+.dropdownc{
+    background-color: #343a40;
+}
+.marginai2{
+    margin-left: 40px;
+    margin-bottom: 0px;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #141414;
+    text-decoration: none;
+    background: #0d3053 -webkit-gradient(linear, left top, left bottom, from(#f9fafb), to(#f8f9fa)) repeat-x;
+    background: #5288bd linear-gradient(
+180deg
+, #bbc1c7, #7fbdfb) repeat-x;
+}
+.dropdown-menu-dark .dropdown-item:focus, .dropdown-menu-dark .dropdown-item:hover {
+    color: #020202;
+    background-color: rgba(255,255,255,.15);
+}
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: rgb(0, 0, 0);
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+    .img-fluid{
+        width: 250px;
+        height: 200px;
+    }
+.jumbotron{
+    border:solid;
+}
+.img-fluid2{
+    width: 550px;
+    height: 400px;
+}
+.cardxz{
+    width: 500px;
+    margin-left: -7rem;
+}
