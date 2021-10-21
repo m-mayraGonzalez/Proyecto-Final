@@ -26,6 +26,9 @@
           </ul>
           <ul class="navbar-nav ml-auto bg-dark">
             <li class="nav-item">
+              <a class="nav-link" href="../">VOLVER</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="../">MENU</a>
             </li>
           </ul>
@@ -67,7 +70,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <input
+                  <input v-model="editedItem.password"
                     type="password"
                     class="form-control"
                     name="Confirmpassword"

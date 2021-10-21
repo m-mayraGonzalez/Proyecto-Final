@@ -26,6 +26,9 @@
           </ul>
           <ul class="navbar-nav ml-auto bg-dark">
             <li class="nav-item">
+              <a class="nav-link" href="../">VOLVER</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="../">MENU</a>
             </li>
           </ul>
@@ -68,13 +71,9 @@
                   />
                 </div>
                 <div class="form-group">
-                  <button
-                    type="submit"
-                    class="btn btn-primary btn-block"
-                    @click="ingresar"
-                  >
+                  <a href="../" @click="ingresar" class="btn btn-primary btn-block">
                     Ingresar
-                  </button>
+                  </a>
                 </div>
                 <a href="../Register" class="btn btn-primary btn-block">
                   Registrarse

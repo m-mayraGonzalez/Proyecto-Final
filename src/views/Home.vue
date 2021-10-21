@@ -2,7 +2,7 @@
   <div class="page">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="/Addbovino">
+        <a class="navbar-brand"  href="/Addbovino">
           <img src="../assets/imagen1p.png" alt="MDN"
         /></a>
         <br />
@@ -43,7 +43,8 @@
           </ul>
           <ul class="navbar-nav ml-auto bg-dark">
             <li class="nav-item">
-              <a class="nav-link" href="/LogginAccount">INICIAR SESION</a>
+              <a class="nav-link"  
+              href="/LogginAccount">INICIAR SESION</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/Register">RESGISTRATE</a>
@@ -62,30 +63,50 @@
                 <v-card class="mx-auto" max-width="300">
                   <h3>
                     <router-link
-                      :to="{name:'EditarBovino', params:{animal:cat}}"> Edit 
+                    class="fas fa-edit"
+                      :to="{name:'EditarBovino', params:{animal:cat}}"> 
                     </router-link>
                   </h3>
                   <v-card>
                     <v-img v-bind:src="cat.foto" height="200px"></v-img>
                     <v-card-title class="text-primary sans-serif"
-                      >Nombre de la raza</v-card-title
+                      >Raza</v-card-title
                     >
                     <v-card-subtitle> {{ cat.raza.nombre }} </v-card-subtitle>
-                    <v-card-text>{{ cat.Descripcion }} </v-card-text>
+
+                    <v-card-title class="text-primary sans-serif"
+                      >Descripción</v-card-title
+                    >
+                    <v-card-subtitle>{{ cat.Descripcion }} </v-card-subtitle>
+
+                    <v-card-title class="text-primary sans-serif"
+                      >Precio</v-card-title
+                    >
+                    <v-card-subtitle>{{ cat.precio }} </v-card-subtitle>
+
                     <v-card-title class="text-primary sans-serif"
                       >Cantidad de Bovinos</v-card-title
                     >
                     <v-card-subtitle> {{ cat.cantidad }} </v-card-subtitle>
+
                     <v-card-title class="text-primary sans-serif"
                       >Fecha de publicación</v-card-title
                     >
                     <v-card-subtitle> {{ cat.createdAt }} </v-card-subtitle>
+                    <br>
+                    <center class="text-primary sans-serif">
+                      <b><p>ENVIO GRATIS</p></b></a
+                    >
+                    </br>
+                  </center>
                   </v-card>
                   <br>
                   <center>
-                    <a href="/about"
-                      ><b><p>ENVIO GRATIS</p></b></a
-                    >
+                    <router-link 
+                      class="btn btn-lg"
+                      :to="{name:'Loggin', params:{animal:cat}}"> 
+                      COMPRAR AHORA
+                    </router-link>
                   </center>
                   <br />
                 </v-card>

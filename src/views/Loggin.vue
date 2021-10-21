@@ -26,7 +26,7 @@
           </ul>
           <ul class="navbar-nav ml-auto bg-dark">
             <li class="nav-item">
-              <a class="nav-link" href="/about">VOLVER</a>
+              <a class="nav-link" href="../">VOLVER</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../">MENU</a>
@@ -46,7 +46,7 @@
           <hr class="my-4" />
 
           <a href="/Register" class="btn btn-sucess btn-lg">SOY NUEVO</a>
-          <a href="/LogginAccount" class="btn btn-success btn-lg"
+          <a href="/LogginAccount" class="btn  btn-lg"
             >YA TENGO CUENTA</a
           >
         </center>
