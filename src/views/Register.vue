@@ -40,7 +40,7 @@
             <div class="card-body">
               <form action="/api/auth/signup" method="POST">
                 <div class="form-group">
-                  <input
+                  <input v-model="editedItem.email"
                     type="email"
                     class="form-control"
                     name="email"
@@ -49,7 +49,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <input
+                  <input v-model="editedItem.nombre"
                     type="text"
                     class="form-control"
                     name="username"
@@ -58,7 +58,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <input
+                  <input v-model="editedItem.password"
                     type="password"
                     class="form-control"
                     name="password"
@@ -88,9 +88,16 @@
                   </label>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-block">
+                  <v-btn
+                    color="teal accent-3"
+                    dark
+                    class="mb-2"
+                    v-bind="attrs"
+                    v-on="on"
+                    @click="guardar()"
+                  >
                     Registrar
-                  </button>
+                  </v-btn>
                 </div>
               </form>
             </div>
@@ -100,3 +107,50 @@
     </main>
   </div>
 </template>
+
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      x: 0,
+      search: "",
+      dialog: false,
+      editedItem: {
+        email: "",
+        nombre: "",
+        password: "",
+      },
+    };
+  },
+  computed: {
+    titulo() {
+      return this.x == 0 ? "Registrar" : "Editar";
+    },
+  },
+  methods: {
+    guardar() {
+      console.log("Estoy registrandome" + this.x);
+      let header = { headers: { token: this.$store.state.token } };
+      const me = this;
+      axios
+        .post(
+          "usuario",
+          {
+            email: me.editedItem.email,
+            nombre: me.editedItem.nombre,
+            password: me.editedItem.password,
+          },
+          header
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    },
+  },
+};
+</script>
+

@@ -46,50 +46,51 @@
               id="productonew"
               enctype="multipart/form-data"
               action="uploader.php"
-              method="POST"
+              method="put"
             >
               <div class="form-group">
                 <input
+                  v-model="editedItem.raza.nombre"
                   type="text"
-                  name="category"
-                  id="category"
+                  name="raza"
+                  id="raza"
                   class="form-control"
-                  placeholder="Raza"
+                  placeholder="raza"
                   autofocus
                 />
               </div>
               <div class="form-group">
-                <textarea
+                <input v-model="editedItem.Descripcion"
                   class="form-control"
-                  id="descripcion"
-                  name="textarea"
+                  id="Descripcion"
+                  name="Descripcion"
                   rows="5"
                   cols="62"
-                  placeholder="Descripción del bovino"
-                ></textarea>
+                  placeholder="Descripcion"
+                ></input>
               </div>
               <div class="form-group">
-                <input
+                <input v-model="editedItem.precio"
                   type="number"
-                  name="price"
-                  id="price"
+                  name="precio"
+                  id="precio"
                   class="form-control"
-                  placeholder="Precio"
+                  placeholder="precio"
                 />
               </div>
               <div class="form-group">
-                <input
+                <input v-model="editedItem.foto"
                   type="text"
-                  name="imgURL"
-                  id="imgURL"
+                  name="foto"
+                  id="foto"
                   class="form-control"
-                  placeholder="URLImagen"
+                  placeholder="foto"
                 />
-                <p>o</p>
+                <br></br>
                 <input name="uploadedfile" type="file" />
               </div>
               <div class="form-group">
-                <input
+                <input v-model="editedItem.cantidad"
                   type="number"
                   name="cantidad"
                   id="cantidad"
@@ -97,11 +98,13 @@
                   placeholder="Cantidad de Bovinos"
                 />
               </div>
-
-              <div class="form-group text-center">
-                <button class="btn btn-primary btn-clock mt-2" type="submit">
-                  Guardar
-                </button>
+              <div class="form-group">
+              <button 
+                class="btn btn-primary btn-block"
+                type="submit"
+                @click="guardar">
+                Guardar
+              </button>
               </div>
             </form>
           </div>
@@ -110,3 +113,48 @@
     </main>
   </div>
 </template>
+
+
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      x: 0,
+      search: "",
+      dialog: false,
+      editedItem:this.$route.params.animal
+    };
+  },
+  computed: {
+    titulo() {
+      return this.x == 0 ? "Editar" : "guardar";
+    },
+  },
+  methods: {
+    guardar() {
+      console.log("Estoy guardando" + this.x);
+      let header = { headers: { token: this.$store.state.token } };
+      const me = this;
+      axios
+        .put(
+          "inventario_animal",
+          {
+            raza: me.editedItem.raza,
+            Descripcion: me.editedItem.Descripcion,
+            precio: me.editedItem.precio,
+            foto: me.editedItem.foto,
+            cantidad: me.editedItem.cantidad,
+          },
+          header
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    },
+  },
+};
+</script>

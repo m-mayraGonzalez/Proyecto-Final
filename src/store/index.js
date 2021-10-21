@@ -6,7 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     token: null,
-    usuario: null
+    usuario: null,
+    raza: null,
+    itemEditar: null
   },
   mutations: {
     setToken(state, token) {
@@ -14,6 +16,12 @@ export default new Vuex.Store({
     },
     setUsuario(state, usuario) {
       state.usuario = usuario
+    }, 
+    setRaza(state, raza){
+      state.raza = raza
+    },
+    setItemEditar(state, itemEditar){
+      state.itemEditar = itemEditar
     }
   },
   actions: {
@@ -21,6 +29,12 @@ export default new Vuex.Store({
       context.commit('setToken', data.token)
       context.commit('setUsuario', data.usuario)
     },
+    setRaza(context, data){
+      context.commit('setRaza', data.raza)
+    },
+    setItemEditar( context, data){
+      context.commit('setItemEditar', data.itemEditar)
+    }
   },
   modules: {
   }

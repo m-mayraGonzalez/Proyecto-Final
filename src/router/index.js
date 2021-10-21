@@ -44,7 +44,7 @@ const routes = [
     component: LogginAccount
   },
   {
-    path: '/Edit',
+    path: '/Edit/:animal',
     name: 'EditarBovino',
     component: Editar
   },

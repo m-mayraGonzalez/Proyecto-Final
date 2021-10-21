@@ -5,6 +5,11 @@
         <a class="navbar-brand" href="/Addbovino">
           <img src="../assets/imagen1p.png" alt="MDN"
         /></a>
+        <br />
+        <br />
+        <h1 class="text-primary sans-serif">MERCA-RES</h1>
+        <br />
+        <br />
         <button
           class="navbar-toggler"
           type="button"
@@ -17,47 +22,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-link"></li>
-            <li class="nav-item active"></li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDarkDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                RAZAS
-              </a>
-              <ul
-                class="dropdown-menu dropdownc dropdown-menu-dark"
-                aria-labelledby="navbarDarkDropdownMenuLink"
-              >
-                <h5 class="dropdown-header">RAZAS PARA CARNE</h5>
-                <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" href="#">Cebu</a></li>
-                <li><a class="dropdown-item" href="#">Simental</a></li>
-                <li><a class="dropdown-item" href="#">Gyr</a></li>
-                <div class="dropdown-divider"></div>
-                <h5 class="dropdown-header">RAZAS PARA LECHE</h5>
-                <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" href="#">Holstein</a></li>
-                <li><a class="dropdown-item" href="#">Patino</a></li>
-                <li><a class="dropdown-item" href="#">Jensey</a></li>
-                <li><a class="dropdown-item" href="#">Ayrshire</a></li>
-
-                <div class="dropdown-divider"></div>
-                <h5 class="dropdown-header">RAZAS PROPOSITO</h5>
-                <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" href="#">Gyr</a></li>
-                <li><a class="dropdown-item" href="#">Simental</a></li>
-                <li><a class="dropdown-item" href="#">Criollo</a></li>
-                <li><a class="dropdown-item" href="#">Gyorolando</a></li>
-              </ul>
-            </li>
-          </ul>
           <ul class="navbar-nav marginai2">
             <li class="nav-item">
               <div class="container h-100">
@@ -88,65 +52,45 @@
         </div>
       </div>
     </nav>
-
     <main class="container containers p-5">
       <div class="contenedorx row">
-        <div class="col-md-3">
+        <div class="col-md-12">
           <div class="card">
-            <div class="card-body">
-              <h4
-                class="
-                  card-title
-                  d-flex
-                  justify-content-between
-                  align-items-center
-                "
-              >
-                <center>ANGUS</center>
-                <a href="/edit"><i class="fas fa-edit"></i></a>
-              </h4>
-              <p>
-                <img
-                  src="https://i0.wp.com/www.suganado.com/wp-content/uploads/jet-engine-forms/1446/2021/07/Novillas-Angus-2.jpg?w=305&ssl=1"
-                  class="img-fluid"
-                />
-              </p>
-              <center><label id="precio1">$ 6.000.000</label></center>
-              <center>
-                <a href="/about"
-                  ><b><p>ENVIO GRATIS</p></b></a
-                >
-              </center>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <div class="card-body">
-              <h4
-                class="
-                  card-title
-                  d-flex
-                  justify-content-between
-                  align-items-center
-                "
-              >
-                <center>BRAHMAN</center>
-                <a href="/edit"><i class="fas fa-edit"></i></a>
-              </h4>
-              <p>
-                <img
-                  src="https://i2.wp.com/www.suganado.com/wp-content/uploads/jet-engine-forms/131/2021/06/IMG_20210628_221757vf6000.jpeg?resize=300%2C300&ssl=1"
-                  class="img-fluid"
-                />
-              </p>
-              <center><label id="precio1">$ 12.000.000</label></center>
-              <center>
-                <a href="/about"
-                  ><b><p>ENVIO GRATIS</p></b></a
-                >
-              </center>
-            </div>
+            <div class="card-body"></div>
+            <v-row>
+              <v-column v-for="(cat, i) in animal" :key="i" class="ma-16">
+                <v-card class="mx-auto" max-width="300">
+                  <h3>
+                    <router-link
+                      :to="{name:'EditarBovino', params:{animal:cat}}"> Edit 
+                    </router-link>
+                  </h3>
+                  <v-card>
+                    <v-img v-bind:src="cat.foto" height="200px"></v-img>
+                    <v-card-title class="text-primary sans-serif"
+                      >Nombre de la raza</v-card-title
+                    >
+                    <v-card-subtitle> {{ cat.raza.nombre }} </v-card-subtitle>
+                    <v-card-text>{{ cat.Descripcion }} </v-card-text>
+                    <v-card-title class="text-primary sans-serif"
+                      >Cantidad de Bovinos</v-card-title
+                    >
+                    <v-card-subtitle> {{ cat.cantidad }} </v-card-subtitle>
+                    <v-card-title class="text-primary sans-serif"
+                      >Fecha de publicación</v-card-title
+                    >
+                    <v-card-subtitle> {{ cat.createdAt }} </v-card-subtitle>
+                  </v-card>
+                  <br>
+                  <center>
+                    <a href="/about"
+                      ><b><p>ENVIO GRATIS</p></b></a
+                    >
+                  </center>
+                  <br />
+                </v-card>
+              </v-column>
+            </v-row>
           </div>
         </div>
       </div>
@@ -154,5 +98,44 @@
   </div>
 </template>
 
-
-
+<script>
+import axios from "axios";
+//import Chart from 'chart.js'
+export default {
+  data() {
+    return {
+      /* datos:[],
+      stock:[], */
+      animal: [],
+    };
+  },
+  watch:{},
+  methods: {
+    bucle() {
+      console.log("hola");
+      let me = this;
+      let header = {
+        headers: {
+          token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTViMDM4ZGU2YzRlYjFiZjQ3ZmZkZGUiLCJpYXQiOjE2MzQ4MzE1OTgsImV4cCI6MTYzNDg0NTk5OH0.Zffiu6UQBBZD99nFmBeVHA49QoZrSYa474yKSuxlL6E",
+        },
+      };
+      axios
+        .get("inventario_animal", header)
+        .then(function (response) {
+          console.log(response);
+          me.animal = response.data.inventario_animal;
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    editar(cat) {
+      console.log(cat);
+    },
+  },
+  created() {
+    this.bucle();
+  },
+};
+</script>

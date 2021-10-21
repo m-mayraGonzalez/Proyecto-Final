@@ -17,47 +17,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-link"></li>
-            <li class="nav-item active"></li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDarkDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                RAZAS
-              </a>
-              <ul
-                class="dropdown-menu dropdownc dropdown-menu-dark"
-                aria-labelledby="navbarDarkDropdownMenuLink"
-              >
-                <h5 class="dropdown-header">RAZAS PARA CARNE</h5>
-                <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" href="#">Cebu</a></li>
-                <li><a class="dropdown-item" href="#">Simental</a></li>
-                <li><a class="dropdown-item" href="#">Gyr</a></li>
-                <div class="dropdown-divider"></div>
-                <h5 class="dropdown-header">RAZAS PARA LECHE</h5>
-                <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" href="#">Holstein</a></li>
-                <li><a class="dropdown-item" href="#">Patino</a></li>
-                <li><a class="dropdown-item" href="#">Jensey</a></li>
-                <li><a class="dropdown-item" href="#">Ayrshire</a></li>
-
-                <div class="dropdown-divider"></div>
-                <h5 class="dropdown-header">RAZAS PROPOSITO</h5>
-                <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" href="#">Gyr</a></li>
-                <li><a class="dropdown-item" href="#">Simental</a></li>
-                <li><a class="dropdown-item" href="#">Criollo</a></li>
-                <li><a class="dropdown-item" href="#">Gyorolando</a></li>
-              </ul>
-            </li>
-          </ul>
           <ul class="navbar-nav marginai2">
             <li class="nav-item">
               <div class="container h-100">
