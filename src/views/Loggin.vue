@@ -38,7 +38,7 @@
     <main class="container containers p-5">
       <div class="jumbotron mt-4">
         <center>
-          <h1 class="display-4">BIENVENIDO</h1>
+          <h1 class="display-4 text-primary sans-serif">BIENVENIDO</h1>
           <p class="lead"></p>
 
           <hr class="my-4" />

@@ -71,9 +71,13 @@
                   />
                 </div>
                 <div class="form-group">
-                  <a href="../" @click="ingresar" class="btn btn-primary btn-block">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-block"
+                    @click="ingresar"
+                  >
                     Ingresar
-                  </a>
+                  </button>
                 </div>
                 <a href="../Register" class="btn btn-primary btn-block">
                   Registrarse

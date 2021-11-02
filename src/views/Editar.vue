@@ -26,7 +26,7 @@
           </ul>
           <ul class="navbar-nav ml-auto bg-dark">
             <li class="nav-item">
-              <a class="nav-link" href="/About">VOLVER</a>
+              <a class="nav-link" href="../">VOLVER</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../">MENU</a>
@@ -50,7 +50,7 @@
             >
               <div class="form-group">
                 <input
-                  v-model="editedItem.raza.nombre"
+                  v-model="editedItem.raza"
                   type="text"
                   name="raza"
                   id="raza"
@@ -60,17 +60,19 @@
                 />
               </div>
               <div class="form-group">
-                <input v-model="editedItem.Descripcion"
+                <input
+                  v-model="editedItem.Descripcion"
                   class="form-control"
                   id="Descripcion"
                   name="Descripcion"
                   rows="5"
                   cols="62"
                   placeholder="Descripcion"
-                ></input>
+                />
               </div>
               <div class="form-group">
-                <input v-model="editedItem.precio"
+                <input
+                  v-model="editedItem.precio"
                   type="number"
                   name="precio"
                   id="precio"
@@ -79,18 +81,20 @@
                 />
               </div>
               <div class="form-group">
-                <input v-model="editedItem.foto"
+                <input
+                  v-model="editedItem.foto"
                   type="text"
                   name="foto"
                   id="foto"
                   class="form-control"
                   placeholder="foto"
                 />
-                <br></br>
+                <br />
                 <input name="uploadedfile" type="file" />
               </div>
               <div class="form-group">
-                <input v-model="editedItem.cantidad"
+                <input
+                  v-model="editedItem.cantidad"
                   type="number"
                   name="cantidad"
                   id="cantidad"
@@ -99,12 +103,13 @@
                 />
               </div>
               <div class="form-group">
-              <button 
-                class="btn btn-primary btn-block"
-                type="submit"
-                @click="guardar">
-                Guardar
-              </button>
+                <button
+                  class="btn btn-primary btn-block"
+                  type="submit"
+                  @click="guardar()"
+                >
+                  Guardar
+                </button>
               </div>
             </form>
           </div>
@@ -123,7 +128,13 @@ export default {
       x: 0,
       search: "",
       dialog: false,
-      editedItem:this.$route.params.animal
+      editedItem:{
+        raza:"",
+        Descripcion:"",
+        precio:"",
+        foto:"",
+        cantidad:""
+      },
     };
   },
   computed: {
@@ -131,8 +142,18 @@ export default {
       return this.x == 0 ? "Editar" : "guardar";
     },
   },
+  created (){
+    this.editedItem.raza=this.$store.state.raza
+    this.editedItem.Descripcion=this.$store.state.Descripcion
+    this.editedItem.precio=this.$store.state.precio
+    this.editedItem.foto=this.$store.state.foto
+    this.editedItem.cantidad=this.$store.state.cantidad
+  },
   methods: {
     guardar() {
+      console.log(this.editedItem.raza)
+      console.log(this.editedItem.precio)
+      console.log(this.editedItem.cantidad)
       console.log("Estoy guardando" + this.x);
       let header = { headers: { token: this.$store.state.token } };
       const me = this;

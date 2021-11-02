@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-export default new Vuex.Store({
+export const store = new Vuex.Store({
   state: {
     token: null,
     usuario: null,
     raza: null,
-    itemEditar: null
+    Descripcion: null,
+    precio: null,
+    foto: null,
+    cantidad: null
   },
   mutations: {
     setToken(state, token) {
@@ -20,9 +23,18 @@ export default new Vuex.Store({
     setRaza(state, raza){
       state.raza = raza
     },
-    setItemEditar(state, itemEditar){
-      state.itemEditar = itemEditar
-    }
+    setDescripcion(state, Descripcion){
+      state.Descripcion = Descripcion
+    },
+    setPrecio(state, precio){
+      state.precio = precio
+    },
+    setFoto(state, foto){
+      state.foto = foto
+    },
+    setCantidad(state, cantidad){
+      state.cantidad = cantidad
+    },
   },
   actions: {
     setToken(context, data) {
@@ -30,11 +42,20 @@ export default new Vuex.Store({
       context.commit('setUsuario', data.usuario)
     },
     setRaza(context, data){
-      context.commit('setRaza', data.raza)
+      context.commit('setRaza', data)
     },
-    setItemEditar( context, data){
-      context.commit('setItemEditar', data.itemEditar)
-    }
+    setDescripcion(context, data){
+      context.commit('setDescripcion', data)
+    },
+    setPrecio(context, data){
+      context.commit('setPrecio', data)
+    },
+    setFoto(context, data){
+      context.commit('setFoto', data)
+    },
+    setCantidad(context, data){
+      context.commit('setCantidad', data)
+    },
   },
   modules: {
   }

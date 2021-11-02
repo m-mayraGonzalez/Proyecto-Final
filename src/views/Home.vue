@@ -2,7 +2,7 @@
   <div class="page">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand"  href="/Addbovino">
+        <a class="navbar-brand" href="/Addbovino">
           <img src="../assets/imagen1p.png" alt="MDN"
         /></a>
         <br />
@@ -43,8 +43,7 @@
           </ul>
           <ul class="navbar-nav ml-auto bg-dark">
             <li class="nav-item">
-              <a class="nav-link"  
-              href="/LogginAccount">INICIAR SESION</a>
+              <a class="nav-link" href="/LogginAccount">INICIAR SESION</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/Register">RESGISTRATE</a>
@@ -62,10 +61,11 @@
               <v-column v-for="(cat, i) in animal" :key="i" class="ma-16">
                 <v-card class="mx-auto" max-width="300">
                   <h3>
-                    <router-link
-                    class="fas fa-edit"
-                      :to="{name:'EditarBovino', params:{animal:cat}}"> 
-                    </router-link>
+                    <button
+                      class="text-primary fas fa-edit"
+                      @click="editar(cat.raza.nombre, cat.Descripcion, cat.precio, cat.foto, cat.cantidad)" 
+                    >
+                    </button>
                   </h3>
                   <v-card>
                     <v-img v-bind:src="cat.foto" height="200px"></v-img>
@@ -77,7 +77,8 @@
                     <v-card-title class="text-primary sans-serif"
                       >Descripción</v-card-title
                     >
-                    <v-card-subtitle>{{ cat.Descripcion }} </v-card-subtitle>
+                    <v-card-subtitle>{{ cat.Descripcion
+                      }} </v-card-subtitle>
 
                     <v-card-title class="text-primary sans-serif"
                       >Precio</v-card-title
@@ -93,20 +94,15 @@
                       >Fecha de publicación</v-card-title
                     >
                     <v-card-subtitle> {{ cat.createdAt }} </v-card-subtitle>
-                    <br>
+                    <br />
                     <center class="text-primary sans-serif">
-                      <b><p>ENVIO GRATIS</p></b></a
-                    >
-                    </br>
-                  </center>
+                      <b><p>ENVIO GRATIS</p></b>
+                    </center>
+                    <br />
                   </v-card>
-                  <br>
+                  <br />
                   <center>
-                    <router-link 
-                      class="btn btn-lg"
-                      :to="{name:'Loggin', params:{animal:cat}}"> 
-                      COMPRAR AHORA
-                    </router-link>
+                    <a href="/Loggin" class="btn">COMPRAR AHORA</a>
                   </center>
                   <br />
                 </v-card>
@@ -130,15 +126,14 @@ export default {
       animal: [],
     };
   },
-  watch:{},
+  watch: {},
   methods: {
     bucle() {
-      console.log("hola");
       let me = this;
       let header = {
         headers: {
           token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTViMDM4ZGU2YzRlYjFiZjQ3ZmZkZGUiLCJpYXQiOjE2MzQ4MzE1OTgsImV4cCI6MTYzNDg0NTk5OH0.Zffiu6UQBBZD99nFmBeVHA49QoZrSYa474yKSuxlL6E",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTViMDM4ZGU2YzRlYjFiZjQ3ZmZkZGUiLCJpYXQiOjE2MzUwMDEyMjgsImV4cCI6MTYzNTAxNTYyOH0.qjkwp6rfFsgUGeDQRwF3r6LTarlv429p-M58Pi-o2FY",
         },
       };
       axios
@@ -151,8 +146,19 @@ export default {
           console.log(e);
         });
     },
-    editar(cat) {
-      console.log(cat);
+    editar(nombre, Descripcion, precio, foto, cantidad) {
+      console.log(nombre, Descripcion, precio, foto, cantidad)
+      this.$store.dispatch("setRaza", nombre)
+      this.$store.dispatch("setDescripcion", Descripcion)
+      this.$store.dispatch("setPrecio", precio)
+      this.$store.dispatch("setFoto", foto)
+      this.$store.dispatch("setCantidad", cantidad)
+      console.log(this.$store.state.raza)
+      console.log(this.$store.state.Descripcion)
+      console.log(this.$store.state.precio)
+      console.log(this.$store.state.foto)
+      console.log(this.$store.state.cantidad)
+      this.$router.push("/Edit");
     },
   },
   created() {
