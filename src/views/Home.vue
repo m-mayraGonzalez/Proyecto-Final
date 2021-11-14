@@ -68,7 +68,7 @@
                     </button>
                   </h3>
                   <v-card>
-                    <v-img v-bind:src="cat.foto" height="200px"></v-img>
+                    <v-img src="https://www.stylourbano.com.br/wp-content/uploads/2020/05/vaca.jpg" height="200px"></v-img>
                     <v-card-title class="text-primary sans-serif"
                       >Raza</v-card-title
                     >
@@ -133,7 +133,7 @@ export default {
       let header = {
         headers: {
           token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTViMDM4ZGU2YzRlYjFiZjQ3ZmZkZGUiLCJpYXQiOjE2MzUwMDEyMjgsImV4cCI6MTYzNTAxNTYyOH0.qjkwp6rfFsgUGeDQRwF3r6LTarlv429p-M58Pi-o2FY",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTViMDM4ZGU2YzRlYjFiZjQ3ZmZkZGUiLCJpYXQiOjE2MzY5MDE2OTIsImV4cCI6MTYzNjkxNjA5Mn0.RtB6Fk3qg1tO86a46WvSIXDDNE-FcpiMFxpelzmeD40",
         },
       };
       axios
